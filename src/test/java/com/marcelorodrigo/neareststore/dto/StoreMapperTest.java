@@ -18,6 +18,19 @@ class StoreMapperTest {
         store.setUuid("6749847-a");
         store.setAddressName("Van Driel 5");
         store.setCity("Best");
+        store.setStreet("Van Driel");
+        store.setStreet2("5");
+        store.setStreet3("X");
+        store.setPostalCode("1234 BC");
+        store.setComplexNumber(null);
+        store.setLatitude(5.45);
+        store.setLongitude(51.27807);
+        store.setTodayOpen("08:00");
+        store.setTodayClose("22:00");
+        store.setLocationType("MEGA_STORE");
+        store.setSapStoreID(1897234);
+        store.setCollectionPoint(true);
+        store.setShowWarningMessage(true);
     }
 
     @Test
