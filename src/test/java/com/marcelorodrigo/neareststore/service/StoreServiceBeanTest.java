@@ -28,4 +28,11 @@ class StoreServiceBeanTest {
         storeService.findNearest(latitude, longitude, pageable);
         verify(repository).findNearest(latitude, longitude, pageable);
     }
+
+    @Test
+    void findById() {
+        final String uuid = "uuid87897";
+        storeService.findById(uuid);
+        verify(repository).findById(uuid);
+    }
 }
