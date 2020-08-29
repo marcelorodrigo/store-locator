@@ -1,0 +1,73 @@
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/vuelayers/lib/style.css"/>
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
+</head>
+<body>
+<div id="app">
+    <b-modal hide-footer id="welcome" title="Welcome" class="modal-dialog-centered">
+        <p class="font-weight-light">You're navigating a really simple map, that shows you the
+            <strong>5 closest </strong> stores based on your <strong>map center</strong>.</p>
+        <p class="font-weight-light">Play a bit with your mouse to <strong>move the map</strong> and also zoom it.</p>
+        <p>Have fun :-)</p>
+    </b-modal>
+    <vl-map :load-tiles-while-animating="true" :load-tiles-while-interacting="true" data-projection="EPSG:4326">
+        <vl-view :zoom.sync="zoom" :center.sync="center" :rotation.sync="rotation"></vl-view>
+        <vl-geoloc @update:position="geoPosition = $event"></vl-geoloc>
+        <vl-layer-tile id="osm">
+            <vl-source-osm></vl-source-osm>
+        </vl-layer-tile>
+        <vl-feature v-for="store in stores" v-bind:key="store.uuid">
+            <vl-geom-point :coordinates="[store.longitude, store.latitude]"></vl-geom-point>
+            <vl-style-box>
+                <vl-style-icon src="image/shopping-cart.png"></vl-style-icon>
+            </vl-style-box>
+        </vl-feature>
+    </vl-map>
+</div>
+<script src="//unpkg.com/vue@latest/dist/vue.min.js"></script>
+<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+<script src="//cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v5.3.0/build/ol.js"></script>
+<script src="//unpkg.com/vuelayers/lib/index.umd.js"></script>
+<script src="//unpkg.com/axios@latest/dist/axios.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/lodash@latest/lodash.min.js"></script>
+<script>
+    let app = new Vue({
+        el: '#app',
+        data: {
+            stores: [{"latitude": 0, "longitude": 0}],
+            zoom: 11,
+            rotation: 0,
+            center: [5.54, 51.60],
+            geoPosition: undefined
+        },
+        watch: {
+            geoPosition: function (newGeo, oldGeo) {
+                if (newGeo !== oldGeo) {
+                    this.center = newGeo;
+                    this.zoom = 12;
+                }
+            },
+            center: function (newCenter, oldCenter) {
+                this.debouncedSearchStores()
+            }
+        },
+        created: function () {
+            this.debouncedSearchStores = _.debounce(this.searchStores, 200)
+            this.debouncedSearchStores()
+        },
+        mounted: function () {
+            this.$bvModal.show('welcome')
+        },
+        methods: {
+            searchStores: function () {
+                let that = this;
+                axios.get('//127.0.0.1:8080/store?size=5&latitude=' + this.center[1] + "&longitude=" + this.center[0])
+                    .then(response => (that.stores = response.data.content));
+            }
+        }
+    })
+</script>
+</body>
+</html>
