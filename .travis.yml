@@ -1,3 +1,5 @@
 language: java
-before_script:
-  - chmoxd +x mvnw
+before_install:
+  - chmoxd +x ./mvnw
+script:
+  - ./mvnw clean install -U
