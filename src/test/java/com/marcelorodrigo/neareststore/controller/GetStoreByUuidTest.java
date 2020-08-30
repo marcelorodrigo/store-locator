@@ -13,11 +13,12 @@ import org.springframework.test.web.servlet.ResultActions;
 import java.util.Optional;
 
 import static org.mockito.Mockito.when;
+import static org.springframework.http.HttpHeaders.ACCEPT;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(StoreController.class)
+@WebMvcTest(StoreControllerV1.class)
 class GetStoreByUuidTest {
 
     @MockBean
@@ -26,7 +27,8 @@ class GetStoreByUuidTest {
     @Autowired
     private MockMvc mockMvc;
 
-    private final static Store STORE = new Store();
+    private static final Store STORE = new Store();
+    private static final String V1_JSON = "application/vnd.neareststore.v1+json";
     private ResultActions resultActions;
 
     @BeforeAll
@@ -66,7 +68,7 @@ class GetStoreByUuidTest {
     }
 
     private void whenGetStoreIsCalled(String id) throws Exception {
-        resultActions = mockMvc.perform(get("/store/" + id));
+        resultActions = mockMvc.perform(get("/store/" + id).header(ACCEPT, V1_JSON));
     }
 
     private void then404IsReturned() throws Exception {

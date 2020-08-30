@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class StorelocatorApplication {
+public class NearestStoreApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(StorelocatorApplication.class, args);
+        SpringApplication.run(NearestStoreApplication.class, args);
     }
 
 }

@@ -77,6 +77,13 @@ A response should look like:
 The endpoint has pagination capabilities via Query Params:
  - `size` for sizing page results (_default 5_)
  - `page` for page number. (_default 0_)
+ 
+ 
+#### Versioning
+This API is versioned using **Media Type Versioning**, so that you must include 
+the desired version on `Accept` header:
+
+>Accept: application/vnd.neareststore.v1+json
 
 ## Tests
 This project is covered by unit tests and Controller tests, you can
@@ -97,9 +104,6 @@ and [OpenLayers](https://openlayers.org/) + [OpenStreetMap](https://www.openstre
 Have fun navigating the globe and seeing the closest shops to you.
 
 ## Improvements
-- **API Versioning**: as API's evolve over time, it's a good practice to implement API versioning as soon as possible.
-Furthermore, it's also a good practice to at least offer the first version as unversed API
-(independently of the versioning strategy) for client compatibility.
 - **Real database**: as H2 it's a in-memory database, every startup it's necessary to run migrations and feed database.
 So using a real database it's a good idea.
 - **Geospatial Database functions**: as the idea here is to show how to solve the problem using haversine formula over JPA to compute 

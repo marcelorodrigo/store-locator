@@ -73,7 +73,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "application/json": {
+              "application/vnd.neareststore.v1+json": {
                 "schema": {
                   "$ref": "#/components/schemas/Page.Store"
                 }
@@ -89,6 +89,10 @@
                 }
               }
             }
+          },
+          "415": {
+            "description": "Unsupported type",
+            "content": {}
           }
         }
       }
@@ -115,7 +119,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "application/json": {
+              "application/vnd.neareststore.v1+json": {
                 "schema": {
                   "$ref": "#/components/schemas/Store"
                 }
@@ -124,6 +128,10 @@
           },
           "404": {
             "description": "Not Found",
+            "content": {}
+          },
+          "415": {
+            "description": "Unsupported type",
             "content": {}
           }
         }

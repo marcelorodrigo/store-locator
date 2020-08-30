@@ -1,8 +1,11 @@
 <html>
 <head>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" href="image/shopping-cart.png"/>
     <link type="text/css" rel="stylesheet" href="//unpkg.com/vuelayers/lib/style.css"/>
     <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>
     <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css"/>
+    <title>Nearest Store Map Viewer</title>
 </head>
 <body>
 <div id="app">
@@ -63,7 +66,8 @@
         methods: {
             searchStores: function () {
                 let that = this;
-                axios.get('//127.0.0.1:8080/store?size=5&latitude=' + this.center[1] + "&longitude=" + this.center[0])
+                let options = {headers: {'Accept': 'application/vnd.neareststore.v1+json'}}
+                axios.get('//127.0.0.1:8080/store?size=5&latitude=' + this.center[1] + "&longitude=" + this.center[0], options)
                     .then(response => (that.stores = response.data.content));
             }
         }
