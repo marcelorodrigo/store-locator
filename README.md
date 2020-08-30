@@ -43,3 +43,13 @@ in memory, as reference to this implementation.
 ## API Usage
 [OpenApi v3](src/main/resources/static/openapi.json) documentation is available.
 You can [try it](https://validator.swagger.io/?url=https://raw.githubusercontent.com/marcelorodrigo/nearest-store/master/src/main/resources/static/openapi.json) online
+
+## Improvements
+- *API Versioning*: as API's evolve over time, it's a good practice to implement API versioning as soon as possible.
+Furthermore, it's a good practice to at least offer the first version as unversed API
+(independently of the versioning strategy) for client compatibility.
+- *Real database*: as H2 it's a in-memory database, every startup it's necessary to run migrations and feed database.
+So using a real database it's a good idea.
+- *Geospatial Database functions*: as the idea here is to show how to solve the problem using haversine formula over JPA to compute 
+the distance between two coordinates on the Earth, using geospatial database functions could speed up this computing process
+and turn it into less error prone.
