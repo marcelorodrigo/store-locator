@@ -17,11 +17,12 @@ import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyDouble;
 import static org.mockito.Mockito.when;
+import static org.springframework.http.HttpHeaders.ACCEPT;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(StoreController.class)
+@WebMvcTest(StoreControllerV1.class)
 class GetNearestStoresByCoordinateTest {
 
     @MockBean
@@ -31,7 +32,7 @@ class GetNearestStoresByCoordinateTest {
     private MockMvc mockMvc;
 
     private ResultActions resultActions;
-
+    private static final String V1_JSON = "application/vnd.neareststore.v1+json";
 
     @Test
     void whenInvalidLatitude_mustReturn400BadRequest() throws Exception {
@@ -72,6 +73,7 @@ class GetNearestStoresByCoordinateTest {
     }
 
     private void whenGetNearestStoreIsCalled(double latitude, double longitude) throws Exception {
-        resultActions = mockMvc.perform(get("/store/?latitude=" + latitude + "&longitude=" + longitude));
+        resultActions = mockMvc.perform(get("/store/?latitude=" + latitude + "&longitude=" + longitude)
+                .header(ACCEPT, V1_JSON));
     }
 }

@@ -8,22 +8,21 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(path = "/store")
-public class StoreController {
+@CrossOrigin(origins = "*")
+@RequestMapping(path = "/store", produces = StoreControllerV1.V1_JSON)
+public class StoreControllerV1 {
 
+    static final String V1_JSON = "application/vnd.neareststore.v1+json";
     private final StoreService storeService;
 
-    public StoreController(StoreService storeService) {
+    public StoreControllerV1(StoreService storeService) {
         this.storeService = storeService;
     }
 
-    @GetMapping("/{uuid}")
+    @GetMapping(value = "/{uuid}")
     public ResponseEntity<StoreDTO> getStore(@PathVariable("uuid") String uuid) {
         return ResponseEntity.of(storeService
                 .findById(uuid)
