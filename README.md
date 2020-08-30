@@ -47,7 +47,7 @@ You can [try it](https://validator.swagger.io/?url=https://raw.githubusercontent
 
 >http://127.0.0.1:8080/store/?latitude={double}&longitude={double}
 
-This endpoint provides the 5 closes stores on the database, ordered by distance, to the provided `latitude` and `longitude` coordinates.
+This endpoint provides the 5 closes stores on the database, ordered by distance, to the provided `latitude` and `longitude` coordinates.\
 A response should look like:
 
 ```json
@@ -86,8 +86,8 @@ the desired version on `Accept` header:
 >Accept: application/vnd.neareststore.v1+json
 
 ## Tests
-This project is covered by unit tests and Controller tests, you can
-execute all these tests by running this command on project root:
+Unit Tests and Controller Tests are included as part of the code, you can
+execute all tests by running this command on project root:
 > mvnw test
 
 ### Coverage Report
@@ -101,7 +101,8 @@ and [OpenLayers](https://openlayers.org/) + [OpenStreetMap](https://www.openstre
 
 ![Screenshot](https://github.com/marcelorodrigo/nearest-store/blob/master/src/main/resources/static/image/screenshot.png?raw=true)
 
-Have fun navigating the globe and seeing the closest shops to you.
+Have fun navigating the globe and seeing the closest shops to you :relaxed:\
+*ProTip*: If you're not seeing stores close to you, try to navigate in *The Netherlands*
 
 ## Improvements
 - **Real database**: as H2 it's a in-memory database, every startup it's necessary to run migrations and feed database.
