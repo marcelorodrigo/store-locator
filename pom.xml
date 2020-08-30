@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.marcelorodrigo</groupId>
     <artifactId>nearest-store</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>Nearest Store</name>
     <description>Nearest Store API based on JPA Haversine formula</description>
 
