@@ -1,8 +1,6 @@
 Nearest Store JPA
 =================
-[![Build Status](https://travis-ci.org/marcelorodrigo/nearest-store.svg?branch=master)](https://travis-ci.org/marcelorodrigo/nearest-store)
-[![Maintainability](https://api.codeclimate.com/v1/badges/263bc047c3dd03aa2573/maintainability)](https://codeclimate.com/github/marcelorodrigo/nearest-store/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/263bc047c3dd03aa2573/test_coverage)](https://codeclimate.com/github/marcelorodrigo/nearest-store/test_coverage)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=marcelorodrigo_nearest-store&metric=alert_status)](https://sonarcloud.io/dashboard?id=marcelorodrigo_nearest-store)
 
 This project provides one endpoint to get the nearest stores based on geographic coordinates in
 [WSG84](https://en.wikipedia.org/wiki/World_Geodetic_System) 
