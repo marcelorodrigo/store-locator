@@ -8,21 +8,19 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 public class StoreDTO {
-
     private String uuid;
+    private String todayOpen;
+    private boolean showWarningMessage;
     private String addressName;
+    private String locationType;
     private String street;
     private String street2;
     private String street3;
-    private String city;
-    private String postalCode;
     private String complexNumber;
-    private boolean showWarningMessage;
+    private String postalCode;
+    private String city;
     private double latitude;
     private double longitude;
-    private String todayOpen;
-    private String locationType;
     private boolean collectionPoint;
     private String todayClose;
-
 }
