@@ -1,6 +1,11 @@
 Nearest Store JPA
 =================
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=marcelorodrigo_nearest-store&metric=alert_status)](https://sonarcloud.io/dashboard?id=marcelorodrigo_nearest-store)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=marcelorodrigo_nearest-store&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=marcelorodrigo_nearest-store)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=marcelorodrigo_nearest-store&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=marcelorodrigo_nearest-store)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=marcelorodrigo_nearest-store&metric=security_rating)](https://sonarcloud.io/dashboard?id=marcelorodrigo_nearest-store)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=marcelorodrigo_nearest-store&metric=sqale_index)](https://sonarcloud.io/dashboard?id=marcelorodrigo_nearest-store)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=marcelorodrigo_nearest-store&metric=coverage)](https://sonarcloud.io/dashboard?id=marcelorodrigo_nearest-store)
 
 This project provides one endpoint to get the nearest stores based on geographic coordinates in
 [WSG84](https://en.wikipedia.org/wiki/World_Geodetic_System) 
