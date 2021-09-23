@@ -20,7 +20,7 @@ in memory, as reference to this implementation.
 
 ## Technologies
 
-- Java 11
+- Java 17
 - [Spring Boot](https://spring.io/projects/spring-boot) 
 - [JUnit](https://junit.org/junit5/)
 - [Mockito](https://site.mockito.org)
@@ -29,7 +29,7 @@ in memory, as reference to this implementation.
 
 ## Prerequisites
 
-- JDK 11
+- JDK 17
 - Maven 3.6 (or newer)
 - Port 8080 available (for Tomcat serve API and static content)
 

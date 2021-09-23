@@ -14,7 +14,7 @@
     <description>Nearest Store API based on JPA Haversine formula</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <sonar.projectKey>marcelorodrigo_nearest-store</sonar.projectKey>
         <sonar.organization>marcelorodrigo</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
