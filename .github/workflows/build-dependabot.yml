@@ -24,8 +24,8 @@ jobs:
         path: ~/.m2
         key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
         restore-keys: ${{ runner.os }}-m2
-    - name: Build with Maven
+    - name: Analyse with Maven
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: mvn -B verify --no-transfer-progress
+      run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar --no-transfer-progress
